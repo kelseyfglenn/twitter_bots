@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body style="background-color:#0084b4;">
+  <h1>
+      botter: Bot or Not
+  </h1>
+  <div style="position:fixed;top:4%;left:8%;width:35%;height:150px;border:1px solid #000;background-color:#c0deed;"></div>
+  <span class="dot"  style="border:3px solid black;position:fixed;top:8%;left:10%;height:135px;width:135px;background-color:white;border-radius:50%;display: inline-block;"></span>
+  
+  <form style="background-color:black" action="/predict" >
+    
+    <div style="margin:0;position:fixed;top:8%;left:20%">
+    <p>Default Background?<br>
+    <input type="text" name="default_profile" value="{{df['default_profile'][0]}}"><br>
+    </p>
+    </div>
+
+    <div style="margin:0;position:fixed;top:43%;left:22%;">
+    <p>Total Likes<br>
+      <input type="text" name="favourites_count" value="{{df['favourites_count'][0]}}"><br>
+    </p>
+    </div>
+   
+    <div style="margin:0;position:fixed;top:40%;left:22%;">
+      <p>
+      <input type="text" name="followers_count" value="{{df['followers_count'][0]}}">Followers
+      </p>
+      <br>
+    </div>
+
+    <div style="margin:0;position:fixed;top:40%;left:10%;">
+      <p>
+      <input type="text" name="friends_count" value="{{df['friends_count'][0]}}">Following
+      </p>
+      <br>
+    </div>
+
+    <div style="margin:0;position:fixed;top:5%;left:35%;">
+    <p>Listed Count<br>
+      <input type="text" name="listed_count" value="{{df['listed_count'][0]}}"><br>
+    </p>
+   
+    <div style="margin:0;position:fixed;top:10%;left:35%;">
+    <p>Protected?<br>
+      <input type="text" name="protected" value="{{df['protected'][0]}}"><br>
+    </p>
+   
+    <div style="margin:0;position:fixed;top:43%;left:10%;">
+    <p>
+      Tweets<br>
+      <input type="text" name="statuses_count" value="{{df['statuses_count'][0]}}"><br>
+      
+    </pr>  
+    </div>
+    
+    <div style="margin:0;position:fixed;top:22%;left:20%;">
+    <p>
+      Verified<br>
+      <input type="text" name="verified" value="{{df['verified'][0]}}"><br>
+    </p>
+    </div> 
+    
+    <div style="margin:0;position:fixed;top:30%;left:10%;">
+      <p>
+       <pre>(X) Your Location     &www.kelseyfglenn.com</pre> 
+      </p>
+      <p>Account Age<br>
+      <input type="text" name="age_at_collection" value="{{df['age_at_collection'][0]}}"><br>
+    </p>
+    
+    <div style="margin:0;position:fixed;top:22%;left:10%;">
+    <p>
+      Generic<br>
+      @<input type="text" name="generic" value="{{df['generic'][0]}}">
+    </p>
+    <p>
+      Input profile features to predict if the user is a bot<br>
+    </p>
+    </div>
+    
+    <br>
+
+    <div style="margin:0;position:fixed;bottom:45%;left:10%;">
+      <input type="submit" value="Submit" method="get">
+    </div>
+  </form>
+
+  <div style="margin:0;position:fixed;bottom:18%;left:10%;"
+    <p>
+      columns: 
+      {% for col in df %}
+      <br> {{ col }}
+      {% endfor %}
+    </p>
+  <p>
+    prediction:
+    {{ prediction }}
+  </p>
+
+</body>
+</html>
